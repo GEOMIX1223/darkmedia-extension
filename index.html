@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DARK MEDIA GROUP — Extensão Chrome para Google Flow / Veo 3</title>
+    <meta name="description" content="Automatize a geração de vídeos no Google Flow com a extensão DARK MEDIA GROUP. Envie prompts em lote, baixe vídeos automaticamente, use Ingredients para personagens fixos. 100% gratuito.">
+    <meta name="keywords" content="DARK MEDIA GROUP, Veo 3, Google Flow, Chrome Extension, batch video generation, AI video, automação">
+    <meta property="og:title" content="DARK MEDIA GROUP — Extensão Chrome para Google Flow / Veo 3">
+    <meta property="og:description" content="Automatize a geração de vídeos no Google Flow. Envie prompts em lote, Ingredients, SOS Mode. 100% Gratuito.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress-bar" aria-hidden="true"></div>
+
+    <!-- ============ NAVBAR ============ -->
+    <nav class="nav-island" id="navbar">
+        <a href="#" class="nav-brand">
+            <span class="brand-icon">🎬</span>
+            DARK MEDIA<span class="brand-dot">.</span>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">Como Funciona</a>
+            <a href="#faq">FAQ</a>
+            <a href="https://t.me/DARKMEDIAGROUPVEO3" target="_blank" class="nav-cta">💬 Telegram</a>
+        </div>
+        <div class="nav-burger" id="navBurger" onclick="toggleMobileMenu()">
+            <span></span><span></span><span></span>
+        </div>
+    </nav>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="hero">
+        <canvas id="heroCanvas"></canvas>
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <div class="hero-badge reveal">
+                    <span class="pulse-dot"></span>
+                    100% Gratuito — Chrome Extension
+                </div>
+                <div class="eyebrow reveal">DARK MEDIA GROUP V29</div>
+                <h1 class="reveal">
+                    Automatize a geração de vídeos no <span class="gradient-text">Google Flow</span>
+                </h1>
+                <p class="hero-subtitle reveal">
+                    Envie prompts em lote, baixe vídeos automaticamente, use Ingredients para personagens fixos. A extensão que transforma o Veo 3 em uma máquina de produção.
+                </p>
+                <div class="hero-ctas reveal">
+                    <a href="https://chromewebstore.google.com/detail/iehoflbfccbodbgjbffhhmcihjpedppn" target="_blank" class="btn-primary magnetic-btn">
+                        <span>⬇ Instalar Extensão</span>
+                        <div class="btn-icon">↗</div>
+                    </a>
+                    <a href="#how-it-works" class="btn-secondary">
+                        ▶ Como Funciona
+                    </a>
+                </div>
+                <div class="hero-stats-mini reveal stagger">
+                    <div class="hero-stat">
+                        <div class="number" data-count="7">0</div>
+                        <div class="label">Idiomas</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="number-text">FREE</div>
+                        <div class="label">100% Gratuito</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="number-text">∞</div>
+                        <div class="label">Prompts Ilimitados</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Animated Terminal Mockup -->
+            <div class="hero-visual">
+                <div class="terminal-mockup reveal">
+                    <div class="terminal-bar">
+                        <div class="terminal-dots">
+                            <span class="td-red"></span>
+                            <span class="td-yellow"></span>
+                            <span class="td-green"></span>
+                        </div>
+                        <span class="terminal-title">dark-media-pipeline</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="terminal-line tl-1"><span class="t-green">✓</span> 15 prompts carregados <span class="t-dim">— 0.2s</span></div>
+                        <div class="terminal-line tl-2"><span class="t-green">✓</span> Ingredients ativados (2 imagens) <span class="t-dim">— 1.1s</span></div>
+                        <div class="terminal-line tl-3"><span class="t-green">✓</span> Prompt 1/15 enviado ao Veo 3 <span class="t-dim">— 3.4s</span></div>
+                        <div class="terminal-line tl-4"><span class="t-yellow">⏳</span> Gerando vídeo... <span class="t-pulse">██████░░░░</span></div>
+                        <div class="terminal-line tl-5"><span class="t-green">✓</span> Download automático: <span class="t-cyan">vid_01.mp4</span></div>
+                        <div class="terminal-line tl-6"><span class="t-dim">◌</span> <span class="t-dim">Próximo: Prompt 2/15</span></div>
+                        <div class="terminal-cursor">_</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Funcionalidades</span>
+                <h2 class="section-title">Tudo que você precisa.<br>Nada que você não precisa.</h2>
+                <p class="section-subtitle">Uma extensão leve e poderosa que automatiza todo o fluxo de geração de vídeos no Google Flow.</p>
+            </div>
+            <div class="features-grid stagger">
+                <div class="feature-card bezel-outer reveal">
+                    <div class="bezel-inner">
+                        <div class="feature-icon glow-hover">🎬</div>
+                        <h3>Envio Automático de Prompts</h3>
+                        <p>Cole seus prompts, clique iniciar e a extensão envia cada um automaticamente ao Veo 3 com delay configurável entre envios.</p>
+                    </div>
+                </div>
+                <div class="feature-card bezel-outer reveal">
+                    <div class="bezel-inner">
+                        <div class="feature-icon glow-hover">📥</div>
+                        <h3>Download Automático</h3>
+                        <p>Vídeos são baixados automaticamente assim que são gerados. Configure pasta de destino e organize por projeto.</p>
+                    </div>
+                </div>
+                <div class="feature-card bezel-outer reveal">
+                    <div class="bezel-inner">
+                        <div class="feature-icon glow-hover pulse">🧬</div>
+                        <h3>Ingredients — Personagem Fixo</h3>
+                        <p>Use imagens de referência para manter personagens consistentes entre vídeos. Selecione 1 a 3 imagens por prompt automaticamente.</p>
+                    </div>
+                </div>
+                <div class="feature-card bezel-outer reveal">
+                    <div class="bezel-inner">
+                        <div class="feature-icon glow-hover">🆘</div>
+                        <h3>SOS Mode</h3>
+                        <p>Caiu a luz? Internet instável? Use o SOS Mode para capturar e baixar vídeos manualmente da página do Flow.</p>
+                    </div>
+                </div>
+                <div class="feature-card bezel-outer reveal">
+                    <div class="bezel-inner">
+                        <div class="feature-icon glow-hover">🌐</div>
+                        <h3>7 Idiomas</h3>
+                        <p>Interface completa em Português, English, Español, Tiếng Việt, हिन्दी, ไทย e Filipino. Mude com um clique.</p>
+                    </div>
+                </div>
+                <div class="feature-card bezel-outer reveal">
+                    <div class="bezel-inner">
+                        <div class="feature-icon glow-hover">⚙️</div>
+                        <h3>Configurações Avançadas</h3>
+                        <p>Delay entre prompts, tempo de espera, pasta de download, notificações sonoras. Tudo personalizável nas configurações.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Como Funciona</span>
+                <h2 class="section-title">3 passos. Zero complicação.</h2>
+                <p class="section-subtitle">Da ideia ao vídeo pronto em minutos, não em horas.</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-card reveal">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">📋</div>
+                    <h3>Cole seus Prompts</h3>
+                    <p>Cole ou importe um arquivo .txt com seus prompts. Separe múltiplos prompts com linhas em branco ou use o batch format.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">▶️</div>
+                    <h3>Clique Iniciar</h3>
+                    <p>Abra o Google Flow, clique em "Iniciar Automação" e a extensão faz o resto — envia prompts, espera geração, baixa vídeos.</p>
+                </div>
+                <div class="step-card reveal">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">🎉</div>
+                    <h3>Vídeos Prontos</h3>
+                    <p>Seus vídeos são baixados automaticamente na pasta configurada. Pronto pra editar, publicar ou usar como quiser.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ COMPARISON ============ -->
+    <section class="comparison" id="comparison">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Comparação</span>
+                <h2 class="section-title">Manual vs. DARK MEDIA GROUP</h2>
+                <p class="section-subtitle">Veja quanto tempo você economiza com automação.</p>
+            </div>
+            <div class="comparison-table reveal">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ação</th>
+                            <th>❌ Manual</th>
+                            <th>⚡ DARK MEDIA</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Colar prompt no Flow</td>
+                            <td>Copiar/colar cada um</td>
+                            <td class="dm-val">Automático</td>
+                        </tr>
+                        <tr>
+                            <td>Aguardar geração</td>
+                            <td>Monitorar manualmente</td>
+                            <td class="dm-val">Auto-detecta pronto</td>
+                        </tr>
+                        <tr>
+                            <td>Baixar vídeo</td>
+                            <td>Clique manual em cada</td>
+                            <td class="dm-val">Download automático</td>
+                        </tr>
+                        <tr>
+                            <td>Ingredients (personagem)</td>
+                            <td>Selecionar imagem manual</td>
+                            <td class="dm-val">Auto-seleção</td>
+                        </tr>
+                        <tr>
+                            <td>15 vídeos</td>
+                            <td>2-3 horas de atenção</td>
+                            <td class="dm-val">~5 min + esperar</td>
+                        </tr>
+                        <tr class="total-row">
+                            <td><strong>Resultado</strong></td>
+                            <td><strong>Trabalho repetitivo</strong></td>
+                            <td class="dm-val"><strong>Piloto automático</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Perguntas Frequentes</span>
+                <h2 class="section-title">Dúvidas? A gente responde.</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        A extensão é gratuita?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Sim, 100% gratuita. Sem limite de prompts, sem funcionalidade bloqueada, sem trial. Todas as features disponíveis desde o primeiro uso.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Preciso de conta no Google Flow?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Sim, a extensão funciona como um painel lateral dentro do Google Flow (labs.google). Você precisa ter acesso ao Flow/Veo 3 para usar a extensão.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        O que são Ingredients?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Ingredients é o recurso do Veo 3 que permite usar imagens de referência para manter personagens consistentes entre vídeos. A extensão ativa e seleciona as imagens automaticamente antes de cada prompt.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        E se a internet cair no meio da geração?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            Use o SOS Mode! Ele permite capturar e baixar vídeos que já foram gerados manualmente. Role a página, capture os vídeos visíveis e baixe todos de uma vez.
+                        </div>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Funciona em qualquer navegador?
+                        <span class="faq-toggle">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">
+                            A extensão é exclusiva para Google Chrome (e navegadores baseados em Chromium como Edge, Brave, etc). Requer a versão mais recente do Chrome para melhor compatibilidade.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="final-cta-content reveal">
+                <div class="cta-urgency">🟢 Extensão ativa — gratuita pra sempre</div>
+                <h2>Pronto pra automatizar seus <span class="gradient-text">vídeos</span>?</h2>
+                <p>Pare de fazer trabalho repetitivo. Deixe a extensão trabalhar enquanto você cria.</p>
+                <div class="cta-mini-stats">
+                    <div class="cta-mini"><strong>7</strong> idiomas</div>
+                    <div class="cta-mini"><strong>∞</strong> prompts</div>
+                    <div class="cta-mini"><strong>100%</strong> free</div>
+                </div>
+                <div class="hero-ctas">
+                    <a href="https://chromewebstore.google.com/detail/iehoflbfccbodbgjbffhhmcihjpedppn" target="_blank" class="btn-primary magnetic-btn">
+                        <span>⬇ Baixar Agora</span>
+                        <div class="btn-icon">↗</div>
+                    </a>
+                    <a href="https://t.me/DARKMEDIAGROUPVEO3" target="_blank" class="btn-secondary">
+                        💬 Entrar no Telegram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>🎬 DARK MEDIA GROUP</h3>
+                    <p>Extensão Chrome para automação de geração de vídeos no Google Flow / Veo 3. Gratuita e multi-idioma.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Extensão</h4>
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">Como Funciona</a>
+                    <a href="#faq">FAQ</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Comunidade</h4>
+                    <a href="https://t.me/DARKMEDIAGROUPVEO3" target="_blank">Telegram</a>
+                    <a href="#faq">Suporte</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 DARK MEDIA GROUP. Sobra nada pro betinha.</span>
+                <div class="footer-socials">
+                    <a href="https://t.me/DARKMEDIAGROUPVEO3" target="_blank" title="Telegram">💬</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
